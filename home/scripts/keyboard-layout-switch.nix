@@ -12,6 +12,6 @@ in
     elif [[ $layout == *"es"* ]]; then
       ${xkbmap} -layout pl
     else
-      ${xkbmap} -layout us
+      ${xkbmap} -layout gb
     fi
   ''

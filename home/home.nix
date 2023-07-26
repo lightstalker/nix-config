@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  username = "gvolpe";
+  username = "lightstalker";
   homeDirectory = "/home/${username}";
   configHome = "${homeDirectory}/.config";
 
@@ -10,7 +10,7 @@ let
     arandr               # simple GUI for xrandr
     asciinema            # record the terminal
     audacious            # simple music player
-    bitwarden-cli        # command-line client for the password manager
+    #bitwarden-cli        # command-line client for the password manager
     bottom               # alternative to htop & ytop
     calibre              # e-book reader
     cobang               # qr-code scanner
@@ -28,7 +28,7 @@ let
     #gnomecast            # chromecast local files
     hyperfine            # command-line benchmarking tool
     insomnia             # rest client with graphql support
-    jitsi-meet-electron  # open source video calls and chat
+    #jitsi-meet-electron  # open source video calls and chat
     jmtpfs               # mount mtp devices
     killall              # kill processes by name
     libreoffice          # office suite
@@ -55,14 +55,13 @@ let
     screenkey            # shows keypresses on screen
     simple-scan          # scanner gui
     simplescreenrecorder # screen recorder gui
-    skypeforlinux        # messaging client
+    #skypeforlinux        # messaging client
     slack                # messaging client
     tdesktop             # telegram messaging client
     tldr                 # summary of a man page
     tree                 # display files in a tree view
     vlc                  # media player
     xsel                 # clipboard support (also for neovim)
-    zoom-us              # message client
 
     # haskell packages
     haskellPackages.nix-tree # visualize nix dependencies

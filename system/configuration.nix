@@ -18,7 +18,7 @@ in
   imports =
     [
       # Window manager
-      ./wm/xmonad.nix
+      ./wm/plasma.nix
       # Binary cache
       ./cachix.nix
     ];
@@ -46,10 +46,22 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
+  };
 
   # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
+  time.timeZone = "Europe/London";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -88,13 +100,13 @@ in
       };
     };
 
-    virtualbox.host = {
-      enable = false;
-      enableExtensionPack = false;
-    };
+    # virtualbox.host = {
+    #   enable = false;
+    #   enableExtensionPack = false;
+    # };
   };
 
-  users.extraGroups.vboxusers.members = [ "gvolpe" ];
+  #users.extraGroups.vboxusers.members = [ "lightstalker" ];
 
   security.rtkit.enable = true;
 
@@ -143,7 +155,7 @@ in
     # Remote desktop protocol
     xrdp = {
       enable = true;
-      defaultWindowManager = "xmonad";
+      defaultWindowManager = "${pkgs.plasma-workspace}/bin/plasmashell";
       openFirewall = true;
       #package = pkgs.xrdp.overrideAttrs (old: {
       #postInstall = old.postInstall + ''
@@ -166,7 +178,7 @@ in
   programs.fish.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.gvolpe = {
+  users.users.lightstalker = {
     isNormalUser = true;
     extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "lp" ]; # wheel for ‘sudo’.
     shell = pkgs.fish;
@@ -205,7 +217,7 @@ in
       auto-optimise-store = true;
 
       # Required by Cachix to be used as non-root user
-      trusted-users = [ "root" "gvolpe" ];
+      trusted-users = [ "root" "lightstalker" ];
 
       experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;

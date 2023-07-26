@@ -26,6 +26,7 @@ pre_home() {
 
 post_home() {
   # Set user's profile picture for Gnome3
+  # TODO update to plasma
   echo "Setting profile picture for the accounts service"
   sudo cp imgs/gvolpe.png /var/lib/AccountsService/icons/gvolpe
   sudo echo "Icon=/var/lib/AccountsService/icons/gvolpe" >> /var/lib/AccountsService/users/gvolpe
@@ -42,6 +43,7 @@ build_ci_home() {
 build_ci_system() {
   nix build .#nixosConfigurations.dell-xps.config.system.build.toplevel -L
   nix build .#nixosConfigurations.tongfang-amd.config.system.build.toplevel -L
+  nix build .#nixosConfigurations.framework.config.system.build.toplevel -L
 }
 
 fresh_install() {

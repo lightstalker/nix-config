@@ -43,4 +43,13 @@ in
       ../system/configuration.nix
     ];
   };
+
+  framework = nixosSystem {
+    inherit lib pkgs system;
+    specialArgs = { inherit inputs; };
+    modules = [
+      ../system/machine/framework
+      ../system/configuration.nix
+    ];
+  };
 }

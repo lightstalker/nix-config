@@ -20,6 +20,7 @@ let
     ublock-origin
     unpaywall
     vimium
+        # TODO expand to my list
   ] ++ (with customAddons; [ chatgpt ]);
 
   # disable the annoying floating icon with camera and mic when on a call
